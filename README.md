@@ -1,7 +1,7 @@
-# Miniature System
-A Miniature-System is an advanced software tool designed to identify, analyze, and protect sensitive data that could potentially lead to the identification of individuals. It utilizes sophisticated algorithms and pattern recognition techniques to scan through vast amounts of data, searching for specific markers or formats that resemble personally identifiable information.
+# MediGuardian
+MediGuardian is an advanced software tool designed to identify, analyze, and protect sensitive data that could potentially lead to the identification of individuals. It utilizes sophisticated algorithms and pattern recognition techniques to scan through vast amounts of data, searching for specific markers or formats that resemble personally identifiable information.
 
-The primary purpose of a Miniature System is to safeguard sensitive information such as social security numbers, driver's license numbers, credit card details, addresses, and other confidential data that, if exposed, could lead to identity theft, fraud, or privacy breaches.
+The primary purpose of a MediGuardian is to safeguard sensitive information such as social security numbers, driver's license numbers, credit card details, addresses, and other confidential data that, if exposed, could lead to identity theft, fraud, or privacy breaches.
 
 The detection process involves various steps, including data classification, pattern matching, and contextual analysis. It works across multiple file formats, databases, and communication channels, employing both rule-based systems and machine learning models to recognize PII accurately.
 
@@ -12,60 +12,45 @@ Organizations across different sectors, including finance, healthcare, governmen
 ## Task
 Implementation Gen AI to automatically identify and safeguard personally identifiable information from being inadvertently shared with language models. 
 
-## Description
+## Data Collection and Processing
 For the capstone project on implementing Gen AI to automatically identify and safeguard personally identifiable information (PII) from being shared with language models, consider the following steps:
-
-1. *Define Scope and Objectives:*
-   - Clearly outline the scope of PII you aim to identify and protect.
-   - Define specific objectives for your Gen AI implementation, such as accuracy requirements and types of language models you'll focus on.
-
-2. *Data Collection and Preprocessing:*
-   - Gather a diverse dataset containing examples of PII and non-PII text.
-   - Preprocess the data to ensure it's representative and suitable for training your Gen AI model.
-
-3. *Model Selection:*
-   - Choose a suitable generative AI model for your project. Consider transformer-based models like GPT-3 or more recent versions if available.
-   - Explore pre-trained models that can be fine-tuned for PII detection.
-
-4. *Fine-tuning:*
-   - Adapt the chosen model for PII detection using your dataset.
-   - Implement safeguards to avoid overfitting and ensure ethical handling of sensitive data during fine-tuning.
-
-5. *Evaluation Metrics:*
-   - Define metrics to assess the performance of your Gen AI model, such as precision, recall, and F1 score.
-   - Use a validation set to evaluate how well your model identifies and safeguards PII.
-
-6. *User Interface/Integration:*
-   - Develop a user-friendly interface or integration for users to interact with your Gen AI system.
-   - Ensure clear communication about the PII detection process and any actions taken to safeguard information.
-
-7. *Ethical Considerations:*
-   - Address ethical concerns related to privacy and data security.
-   - Implement transparency measures to inform users about how their information is handled.
-
-8. *Testing and Debugging:*
-   - Rigorously test your system using various scenarios to identify potential vulnerabilities.
-   - Implement debugging mechanisms to trace any issues in the PII detection process.
-
-9. *Documentation:*
-   - Create comprehensive documentation for your Gen AI implementation, including how to use it, its limitations, and ethical guidelines.
-
-10. *Presentation:*
-    - Prepare a presentation summarizing your project, covering methodology, results, and future improvements.
-    - Discuss the significance of your work in enhancing privacy in the context of language models.
-
-By following these steps, you can create a robust capstone project that addresses the important challenge of safeguarding personally identifiable information in the age of generative AI.
-
-## Research 
-
-Hugging Face is a platform that provides state-of-the-art natural language processing (NLP) models, datasets, and tools. One of the datasets available on Hugging Face is bigcode/bigcode-pii-dataset1, which is an annotated dataset for Personal Identifiable Information (PII) in code. The target entities are: Names, Usernames, Emails, IP addresses, Keys, Passwords, and IDs. It consists of 12,099 samples of ~50 lines of code in 31 programming languages.
-
-You can also find a PII detection model that was trained on this dataset at bigcode/starpii2. This is an NER model that can detect 6 target classes of PII in code datasets. You can use this model to remove PII from your own code data, or to fine-tune it on your own PII dataset.
-
-Another dataset that might be relevant for your project is beki/privy3, which consists of protocol traces (JSON, SQL, HTML, and XML) generated from OpenAPI specifications and includes 60+ PII types.
-
-I hope this helps you with your capstone project. If you have any other questions, feel free to ask me. 😊
-
-
-
-
+1. Data Acquisition:
+The project begins with obtaining medical reports or documents in digital
+format, often in PDF or other standardized formats.
+2. Reading and Extraction:
+Using the PyPDF2 library, the code reads the medical reports and extracts
+text from the initial pages.
+This text extraction process allows the code to access and work with the
+content of the medical reports programmatically.
+3. Preparing for Anonymization:
+The extracted text undergoes a pre-processing phase to prepare it for
+anonymization.
+This step involves cleaning the text and ensuring it is in a format suitable for
+further analysis.
+4. Anonymization Process:
+The code utilizes the Presidio library, developed by Microsoft, for
+anonymization purposes.
+Presidio employs pattern recognition techniques to identify and mask
+sensitive information such as names, addresses, and specific IDs within the
+medical reports.
+5. Advanced Anonymization Techniques: Various predefined recognizers and custom recognition patterns are used to
+comprehensively identify and mask sensitive data.
+Recognizers specialized in identifying titles, addresses, or custom-defined PII
+parameters ensure a thorough anonymization process.
+6. Mapping and Deanonymization:
+The code maintains a mapping of anonymized data to its original form,
+allowing for deanonymization if necessary.
+This mapping ensures the ability to retrieve the original data from the
+anonymized content when needed.
+7. Enhancing Data Protection:
+Incorporation of faker operators adds another layer of data security by
+replacing sensitive data with realistic, yet fake, information.
+This step ensures that even if original data is required for testing or
+demonstration, it remains protected.
+8. Conclusion:
+The data collection and processing phase primarily focus on acquiring
+medical reports, extracting relevant information, and anonymizing sensitive
+data to protect patient privacy.
+The process sets the foundation for secure and ethical handling of medical
+information, ensuring compliance with data protection regulations while
+enabling subsequent analysis and summarization.
